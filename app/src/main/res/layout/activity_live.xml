@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".mvvm.live.LiveActivity">
+
+
+        <!-- 第一层 ： 视频播放器 -->
+        <com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer
+            android:id="@+id/gsy"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- 第二层 ： 右上角关闭，退出直播间 -->
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:src="@drawable/ic_shanchu" />
+
+        <!-- 第三层 ： 左侧头像区域 -->
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/rl_user_bg"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+            <ImageView
+                android:id="@+id/iv_tou"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="10dp"
+                android:padding="5dp"
+                android:src="@mipmap/ic_launcher" />
+
+            <LinearLayout
+                android:id="@+id/ll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/iv_tou"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_author"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/iv_tou"
+                    android:text="龙梅子"
+                    android:textColor="#fff" />
+
+                <TextView
+                    android:id="@+id/tv_dianzan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/iv_tou"
+                    android:text="100本场点赞"
+                    android:textColor="#fff" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_guanzhu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/ll"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:background="#f00"
+                android:paddingRight="10dp"
+                android:paddingBottom="5dp"
+                android:text="关注"
+                android:textColor="#fff" />
+        </RelativeLayout>
+
+        <!-- 第四层 ： 底部输入框及三个图标 购物车 礼物 点赞 -->
+        <LinearLayout
+            android:id="@+id/ll_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_input"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/tv_input"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="说点什么..." />
+
+            <ImageView
+                android:id="@+id/iv_gouwuche"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/zhibo_icon_bg"
+                android:padding="10dp"
+                android:src="@drawable/ic_gouwuche" />
+
+            <ImageView
+                android:id="@+id/iv_liwu"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/zhibo_icon_bg"
+                android:padding="10dp"
+                android:src="@drawable/ic_gift" />
+
+            <ImageView
+                android:id="@+id/iv_dianzan"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/zhibo_icon_bg"
+                android:padding="10dp"
+                android:src="@drawable/ic_xihuanred" />
+        </LinearLayout>
+
+        <!-- 点赞 贝塞尔动画 -->
+        <com.kaisengao.likeview.like.KsgLikeView
+            android:id="@+id/ksg_like_view"
+            android:layout_width="100dp"
+            android:layout_height="300dp"
+            android:layout_above="@id/ll_bottom"
+            android:layout_alignParentRight="true" />
+
+        <!-- 第五层 ： 进入直播间消息提示 -->
+        <TextView
+            android:id="@+id/tv_huanying"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/ll_bottom"
+            android:layout_marginLeft="10dp"
+            android:text="系统：欢迎XXX加入直播间"
+            android:textColor="#fff" />
+
+        <!-- 第六层 ： 消息聊天室 -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rec_message"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_above="@id/tv_huanying"
+            android:layout_marginLeft="10dp" />
+
+        <!-- 第七层 ： 输入框布局 -->
+        <LinearLayout
+            android:id="@+id/ll_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#fff"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/et_input"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="请输入要发送的内容" />
+
+            <ImageView
+                android:id="@+id/iv_fasong"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_fasong" />
+        </LinearLayout>
+
+        <!-- 第八层 ： 礼物弹窗 -->
+        <LinearLayout
+            android:id="@+id/ll_liwu"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:layout_alignParentBottom="true"
+            android:background="#000"
+            android:orientation="vertical"
+            android:visibility="gone">
+            <!-- 逗比 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <ImageView
+                    android:id="@+id/iv_liwuguanbi"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_shanchu" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/tv_doubi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0逗比"
+                    android:textColor="#fff" />
+
+                <TextView
+                    android:id="@+id/tv_pay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="充值>"
+                    android:textColor="#FF9800" />
+            </LinearLayout>
+
+            <!-- 礼物列表 -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rec_gift"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!-- 礼物选中及发送 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv_liwuchecked"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@mipmap/ic_launcher" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/btn_fasong"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="发送" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+         <ImageView
+
+             android:id="@+id/iv_gift_show"
+             android:layout_width="50dp"
+             android:layout_height="50dp"
+             android:visibility="gone"
+             android:src="@mipmap/ic_launcher"/>
+
+
+
+
+    </RelativeLayout>
+</layout>

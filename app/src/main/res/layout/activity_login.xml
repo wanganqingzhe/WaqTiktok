@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".mvvm.login.LoginActivity">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/login" />
+
+        <EditText
+            android:layout_margin="15dp"
+            android:id="@+id/login_name"
+            android:layout_width="300dp"
+            android:background="@drawable/circle"
+            android:padding="10dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:hint="请输入用户名" />
+
+        <LinearLayout
+            android:layout_gravity="center"
+            android:layout_width="325dp"
+            android:layout_height="wrap_content">
+
+
+            <EditText
+                android:id="@+id/login_password"
+                android:layout_width="256dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="15dp"
+                android:layout_weight="5"
+                android:background="@drawable/circle"
+                android:hint="请输入密码"
+                android:padding="10dp" />
+
+             <ImageView
+                 android:id="@+id/eye"
+                 android:layout_margin="20dp"
+                 android:layout_width="30dp"
+                 android:layout_height="30dp"
+                 android:src="@drawable/yes"/>
+
+
+
+        </LinearLayout>
+
+
+
+        <android.widget.Button
+            android:layout_margin="15dp"
+            android:id="@+id/login"
+            android:layout_gravity="center"
+            android:background="@drawable/ok"
+            android:textColor="#fff"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:text="登录" />
+
+
+
+
+
+        <TextView
+            android:text="没有账号,去注册!!!"
+            android:gravity="right"
+            android:layout_marginRight="29dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/login_enroll"/>
+
+
+        <CheckBox
+            android:id="@+id/cb"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+             android:text="我已阅读并同意《用户协议》和《隐私政策》"/>
+
+    </LinearLayout>
+</layout>

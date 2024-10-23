@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!-- 推荐 直播布局 -->
+
+    <!-- 第一层： 视频播放器 -->
+    <com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer
+        android:id="@+id/gsy"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- 第二层： 右边操作栏 -->
+
+    <!-- 第三层： 底部跑马灯 -->
+    <LinearLayout
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:paddingLeft="10dp">
+
+        <!-- 地址 -->
+        <TextView
+            android:id="@+id/tv_dingwei"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_dingwei_bg"
+            android:drawableLeft="@drawable/ic_dingwei"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="5dp"
+            android:text="显龙文化产业园"
+            android:textColor="#fff" />
+        <!-- 作者 -->
+        <TextView
+            android:id="@+id/tv_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="谭维维"
+            android:textColor="#fff" />
+
+        <!-- 简介 -->
+        <TextView
+            android:id="@+id/tv_caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="简介"
+            android:textColor="#fff" />
+
+        <!-- 跑马灯 -->
+        <TextView
+            android:id="@+id/tv_pao"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:text="跑马灯"
+            android:textColor="#fff" />
+
+    </LinearLayout>
+
+    <!-- 第四层： 全屏观看 -->
+    <TextView
+        android:id="@+id/live"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="点击进入直播间"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="240dp"
+        android:drawableLeft="@drawable/ic_xinhao"
+        android:textColor="#fff"
+        android:background="@drawable/ic_dingwei_bg"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"/>
+
+</RelativeLayout>

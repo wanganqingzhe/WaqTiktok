@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!-- 推荐 视频布局 -->
+
+    <!-- 第一层： 视频播放器 -->
+    <com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer
+        android:id="@+id/gsy"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- 第二层： 右边操作栏 -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <!-- 头像与+关注 -->
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp">
+
+            <ImageView
+                android:id="@+id/iv_tou"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/logo" />
+
+            <ImageView
+                android:id="@+id/iv_guanzhu"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/ic_add_bg"
+                android:src="@drawable/ic_add" />
+        </RelativeLayout>
+
+        <!-- 点赞 -->
+        <ImageView
+            android:id="@+id/iv_dianzan"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/ic_xihuan" />
+
+        <TextView
+            android:id="@+id/tv_dianzan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="100"
+            android:textColor="#fff" />
+
+        <!-- 评论 -->
+        <ImageView
+            android:id="@+id/iv_pinglun"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/ic_pinglun" />
+
+        <TextView
+            android:id="@+id/tv_pinglun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="5"
+            android:textColor="#fff" />
+        <!-- 收藏 -->
+        <ImageView
+            android:id="@+id/iv_shoucang"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/ic_shoucang" />
+
+        <TextView
+            android:id="@+id/tv_shoucang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="8"
+            android:textColor="#fff" />
+
+        <!-- 分享 -->
+        <ImageView
+            android:id="@+id/iv_fenxiang"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/ic_fenxiang" />
+
+        <TextView
+            android:id="@+id/tv_fenxiang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="2"
+            android:textColor="#fff" />
+
+        <!-- 转 -->
+        <ImageView
+            android:id="@+id/iv_zhuan"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/logo" />
+
+    </LinearLayout>
+
+    <!-- 第三层： 底部跑马灯 -->
+    <LinearLayout
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:paddingLeft="10dp">
+
+        <!-- 地址 -->
+        <TextView
+            android:id="@+id/tv_dingwei"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_dingwei_bg"
+            android:drawableLeft="@drawable/ic_dingwei"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="5dp"
+            android:text="显龙文化产业园"
+            android:textColor="#fff" />
+        <!-- 作者 -->
+        <TextView
+            android:id="@+id/tv_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="谭维维"
+            android:textColor="#fff" />
+
+        <!-- 简介 -->
+        <TextView
+            android:id="@+id/tv_caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="简介"
+            android:textColor="#fff" />
+
+        <!-- 跑马灯 -->
+        <TextView
+            android:id="@+id/tv_pao"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:text="跑马灯"
+            android:textColor="#fff" />
+
+    </LinearLayout>
+    <!-- 第五层： 评论布局 -->
+    <LinearLayout
+        android:id="@+id/ll_pinglun"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:background="#fff"
+        android:visibility="gone"
+        android:orientation="vertical">
+        <!-- 头 -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- 关闭 -->
+            <ImageView
+                android:id="@+id/iv_close"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/video_small_close" />
+
+            <TextView
+                android:id="@+id/tv_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="40dp"
+                android:text="共548条评论"
+                android:textColor="@android:color/darker_gray" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="大家都在搜索：鹦鹉郁闷拔光自己的毛" />
+        </RelativeLayout>
+
+        <!-- 中间：RecycleView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rec_pinglun"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <!-- 底部 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/et_pinglun"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="善语结善缘，恶言伤人心~" />
+
+            <ImageView
+                android:id="@+id/iv_fasong"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_fasong" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>
